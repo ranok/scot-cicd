@@ -30,7 +30,7 @@ def get_web_token(email : str, memo : str) -> Optional[str]:
     res = requests.post(TOKENS_URL + '/generate', data=req_data)
     if res.status_code != 200:
         return None
-    return res.json().get('Url', None)
+    return res.json().get('token_url', None)
 
 def get_aws_token(email : str, memo: str) -> Optional[Dict[str, str]]:
     '''
